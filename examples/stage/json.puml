@@ -1,0 +1,44 @@
+@startjson
+
+!$DARK_THEME = 1
+!theme rwx from ../../
+
+title JSON Data Diagram
+
+{
+  "user": {
+    "id": 101,
+    "name": "Alice",
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "profile": {
+      "email": "alice@example.com",
+      "verified": true,
+      "createdAt": "2025-08-01T12:00:00Z"
+    }
+  },
+  "orders": [
+    {
+      "orderId": 1001,
+      "amount": 199.99,
+      "items": [
+        {
+          "sku": "P001",
+          "qty": 2
+        },
+        {
+          "sku": "P002",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "orderId": 1002,
+      "amount": 49.95,
+      "items": []
+    }
+  ]
+}
+@endjson

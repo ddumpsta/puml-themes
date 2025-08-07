@@ -1,0 +1,106 @@
+@startuml
+
+!$DARK_THEME = 1
+!theme rwx from ../../
+
+'left to right direction
+
+title Class diagram
+
+caption %filename()
+
+header %date()
+
+footer
+PlantUML %version()
+end footer
+
+
+' Package structure
+package zoo.core {
+    abstract class Animal {
+        -id: int
+        -name: String
+        -age: int
+        +eat(): void
+        +sleep(): void
+        {abstract} +makeSound(): void
+    }
+    note right
+        Lorem ipsum
+        ==
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    end note
+
+    interface IFeedable {
+        +feed(): void
+    }
+
+    interface IWalkable {
+        +walk(): void
+    }
+
+    class Mammal extends Animal {
+        +giveBirth(): void
+    }
+
+    class Bird extends Animal {
+        +layEgg(): void
+    }
+
+    class Dog extends Mammal {
+        +bark(): void
+    }
+
+    class Cat extends Mammal {
+        +meow(): void
+    }
+
+    class Parrot extends Bird {
+        +talk(): void
+    }
+
+    ' Interface implementation
+    Animal ..|> IFeedable
+    Mammal ..|> IWalkable
+}
+
+package zoo.environment {
+    class Zoo {
+        -animals: List<Animal>
+        +addAnimal(animal: Animal): void
+        +feedAll(): void
+    }
+
+    class FoodDispenser {
+        +dispense(foodType: FoodType): void
+    }
+
+    ' Composition and Aggregation
+    Zoo *- Animal : houses
+    Zoo o-- FoodDispenser : uses
+}
+
+package zoo.util {
+    enum FoodType {
+        MEAT
+        FISH
+        SEEDS
+        INSECTS
+    }
+
+    annotation Deprecated {
+        since: String
+        alternative: String
+    }
+
+    class ZooUtil <<utility class>> {
+        +logActivity(msg: String): void
+        +generateId(): int
+        {static} +VERSION: String
+    }
+
+    ZooUtil.VERSION : "1.0.0"
+}
+
+@enduml

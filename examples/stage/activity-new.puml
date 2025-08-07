@@ -1,0 +1,65 @@
+@startuml
+
+!$DARK_THEME = 1
+!theme rwx from ../../
+
+title Activity Diagram
+
+caption %filename()
+
+header %date()
+
+footer
+PlantUML %version()
+end footer
+
+start
+
+:Initialize system; <<green>>
+:Load configuration;
+note right
+Lorem ipsum
+----
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+end note
+if (Is config valid?) then (yes)
+  :Apply settings;
+else (no)
+  :Log error; <<red>>
+  detach
+endif
+
+repeat
+  :Check resource status;
+  :Update metrics;
+repeat while (Still running?) is (yes)
+
+fork
+  :Monitor CPU; <<yellow>>
+fork again
+  :Monitor Memory; <<purple>>
+fork again
+  :Monitor Disk IO; <<orange>>
+fork again
+  :Monitor Network IO; <<blue>>
+end fork
+
+if (Failure detected?) then (yes)
+  :Trigger alert; <<red>>
+  kill
+else (no)
+  :Continue monitoring;
+endif
+
+while (User logged in?) is (true)
+  :Wait for user input;
+  if (Input = Exit) then (yes)
+    break
+  else
+    :Process input;
+  endif
+endwhile
+:Cleanup session; <<grey>>
+stop
+
+@enduml

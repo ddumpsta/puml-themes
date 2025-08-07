@@ -1,0 +1,71 @@
+@startuml
+
+!$DARK_THEME = 1
+!theme rwx from ../../
+
+title Sequence Diagram
+caption %filename()
+
+header %date()
+
+footer
+PlantUML %version()
+end footer
+
+autonumber "<b><i>R0.  "
+actor User
+box "Weird things" <<green>>
+    boundary "API Gateway" as G
+    control "Controller" as C
+    entity "Database" as DB
+end box
+participant "AuthService" as A
+collections "Cache" as Cache
+database "Database 2" as DB2
+
+
+User -> G : GET /login
+G -> C : Route to controller
+C -> A ++ : Validate credentials
+
+note left of A
+Checks credentials using multiple sources
+end note
+
+A -> DB ++ : SELECT * FROM users
+DB --> A : User info
+A -> Cache : Store session
+A --> C : Auth OK
+deactivate A
+C -> User : 200 OK
+
+== New Request ==
+
+User -> G : GET /dashboard
+G -> C : Forward request
+C -> A ++ : Load profile
+A -> DB ++ : JOIN user + settings
+DB --> A : Combined data
+deactivate DB
+A --> C : Profile loaded
+deactivate A
+
+alt Session expired
+    C -> User : 401 Unauthorized
+else Success
+    C -> User : 200 OK
+end
+
+== Async Operation ==
+
+par Background task
+    C -> A ++ : Trigger refresh
+    A --> C : Queued
+end
+
+note over User, C
+Sample sequence demonstrating key layout and interaction patterns
+end note
+
+deactivate C
+@enduml
