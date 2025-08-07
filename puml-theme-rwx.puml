@@ -1,0 +1,392 @@
+skinparam actorStyle awesome
+skinparam wrapWidth 300k
+
+scale 1
+
+!ifndef $FONT_NAME
+  !$FONT_NAME = 'Montserrat'
+!endif
+
+!$c_black = '000'
+!$c_white = 'fff'
+!$c_copper = '392720'
+
+!$c_blue_1 = '00293c'
+!$c_blue_2 = '004372'
+!$c_blue_3 = '006cbe'
+!$c_blue_4 = '008dbe'
+!$c_blue_5 = 'c5e8ff'
+
+!$c_orange_1 = '311a00'
+!$c_orange_2 = 'b55f00'
+!$c_orange_3 = 'ee570a'
+!$c_orange_4 = 'ee9466'
+!$c_orange_5 = 'fadcc4'
+
+' gradients
+!$c_yellow_a = 'e5b526'
+!$c_yellow_b = 'd7b216'
+!$c_red_a = 'a72121'
+!$c_red_b = 'db4e4e'
+!$c_purple_a = '9a3d9c'
+!$c_purple_b = '995fbd'
+!$c_green_a = '1a8853'
+!$c_green_b = '47a85b'
+!$c_blue_a = '006cbe'
+!$c_blue_b = '008dbe'
+!$c_orange_a = 'be5d15'
+!$c_orange_b = 'ff8d51'
+!$c_grey_a = '414a51'
+!$c_grey_b = '5d6471'
+
+
+' bodies definitions
+!$body_red = $c_red_b/$c_red_a
+!$body_orange = $c_orange_b/$c_orange_a
+!$body_yellow = $c_yellow_b/$c_yellow_a
+!$body_green = $c_green_b/$c_green_a
+!$body_blue = $c_blue_b/$c_blue_a
+!$body_purple = $c_purple_b/$c_purple_a
+!$body_grey = $c_grey_b/$c_grey_a
+
+!ifndef $DARK_THEME
+    !$bg = $c_white
+    !$title = $c_black
+    !$headers = $c_grey_a
+    !$caption = $c_black
+
+    !$comp_border = $c_white
+    !$comp_bg = $c_blue_4/$c_blue_3
+    !$comp_text = $c_white
+    !$comp_text_outer = $c_black
+
+    !$group_border = $c_white
+    !$group_bg = ddd
+    !$group_box_bg = $c_orange_5
+
+    !$arrow = 333
+
+    !$note_border = $c_white
+    !$note_bg = $c_orange_5
+    !$note_text = $c_black
+
+!else
+    !$bg = '1f2023'
+    !$title = $c_white
+    !$headers = 888
+    !$caption = $c_white
+    !$arrow = $c_orange_4
+
+    !$comp_border = $bg
+    !$comp_bg = $c_blue_4/$c_blue_3
+    !$comp_text = $c_white
+    !$comp_text_outer = $c_white
+
+    !$group_border = $arrow
+    !$group_bg = $bg
+    !$group_box_bg = $c_copper
+
+    !$note_border = $c_orange_4
+    !$note_bg = $c_copper
+    !$note_text = $c_white
+
+!endif
+
+
+!ifndef $BACKGROUND
+  !$BACKGROUND = $bg
+!endif
+
+
+<style>
+
+root {
+  FontName $FONT_NAME
+  FontColor $title
+  FontSize 16
+
+  HorizontalAlignment center
+  RoundCorner 6
+  Padding 5 15
+  Margin 20
+  LineThickness 2
+  BackGroundColor: $BACKGROUND
+  Shadowing: 0
+}
+
+' document properties
+document {
+  Margin 50
+  header {
+    HorizontalAlignment right
+    FontSize 13
+    FontStyle italic
+    FontColor $headers
+    Padding 0
+    Margin 0
+    BackGroundColor transparent
+  }
+  title {
+    HorizontalAlignment center
+    FontName $FONT_NAME
+    FontColor $title
+    FontSize 28
+    FontStyle plain
+    Padding 0
+    Margin 15 0 40 0
+    BackGroundColor transparent
+  }
+  footer {
+    HorizontalAlignment right
+    FontSize 13
+    FontStyle italic
+    FontColor $headers
+    Padding 0
+    Margin 0
+    BackGroundColor transparent
+  }
+  legend {
+  ' TODO
+  }
+  caption {
+    FontColor $caption
+    HorizontalAlignment center
+    Padding 0
+    Margin 20 0 0 0
+    BackGroundColor transparent
+  }
+  frame {
+  ' TODO
+  }
+}
+
+
+' defaults to be overridden (not always possible)
+
+note {
+	BackgroundColor $note_bg
+	FontStyle italic
+	FontColor $note_text
+	LineColor $note_border
+}
+arrow {
+    ' object diagram has no ns specific style
+    LineColor $arrow
+}
+spotClass, spotInterface, spotEnum, spotAbstractClass, spotAnnotation, spotEntity {
+    BackGroundColor $comp_border
+    LineColor $comp_text
+    FontColor $comp_text
+}
+spotClass {
+    BackGroundColor $body_green
+}
+spotInterface {
+    BackGroundColor $body_purple
+}
+spotEnum {
+    BackGroundColor $body_orange
+}
+spotAbstractClass {
+    BackGroundColor $body_blue
+}
+spotAnnotation {
+    BackGroundColor $body_red
+}
+spotEntity {
+    BackGroundColor $body_green
+}
+
+' per type definitions
+
+sequenceDiagram {
+	group {
+	  LineColor $arrow
+	  LineThickness 2
+	  BackGroundColor $group_bg
+	}
+
+	groupHeader {
+	  BackGroundColor $arrow
+	  LineColor transparent
+	  FontColor $comp_text
+	}
+
+	box {
+	  BackGroundColor $group_box_bg
+	  FontColor $comp_text_outer
+	  LineColor $group_box_bg
+	  LineThickness 10
+	  RoundCorner 30
+	}
+
+	lifeLine {
+	  LineColor $arrow
+	  LineThickness 2
+	  LineStyle 5
+	}
+
+	reference {
+	  LineColor 000
+	  BackGroundColor transparent
+	  LineThickness 1.5
+	  HorizontalAlignment center
+	}
+
+	referenceHeader {
+	  LineColor black
+	  BackGroundColor #e
+	  FontColor black
+	  'FontSize 13
+	  FontStyle bold
+	  LineThickness 2.0
+	}
+
+	separator {
+	  LineColor $comp_bg
+	  LineThickness 1
+	  BackGroundColor $comp_bg
+	  FontColor $comp_text
+	  FontStyle bold
+	}
+
+	participant {
+		LineColor $comp_border
+	}
+
+	participant,actor,queue,database,collections {
+	  BackgroundColor $comp_bg
+	  LineColor $comp_border
+	  FontColor $comp_text
+	  FontStyle bold
+	  LineThickness 2
+	}
+
+	boundary,control,entity {
+	  BackgroundColor: transparent;
+	  LineColor $comp_bg
+	  LineThickness 3
+	  HorizontalAlignment center
+	  FontColor: $comp_text_outer
+	  FontStyle bold
+	}
+
+	arrow {
+	    LineThickness 1.5
+    }
+}
+
+componentDiagram {
+    LineThickness 2
+
+    usecase, rectangle, database, storage, queue, package, frame, component, node, folder, card, cloud, artifact, file {
+        LineColor $comp_border
+        BackGroundColor $comp_bg
+        FontColor $comp_text
+    }
+
+    actor {
+        LineColor $comp_border
+        BackGroundColor $comp_bg
+        FontColor $comp_text_outer
+    }
+
+    arrow {
+        LineColor $arrow
+    }
+
+    group {
+        rectangle, database, storage, queue, package, frame, component, node, folder, card, cloud, artifact, file {
+            BackGroundColor $group_bg
+            LineColor $group_border
+        }
+    }
+}
+
+' class diagrams
+
+classDiagram, objectDiagram {
+    'LineColor $arrow
+    class, object, element {
+      BorderColor $comp_border
+      FontColor $comp_text_outer
+      LineColor $arrow
+      header {
+        BackGroundColor $comp_bg
+        FontColor $comp_text
+        LineColor $comp_border
+      }
+    }
+}
+
+' activity - new
+
+activityDiagram {
+    LineThickness 2
+    LineColor $arrow
+    activity {
+        BackGroundColor $comp_bg
+        LineColor transparent
+        FontColor $comp_text
+        Padding 10
+    }
+
+    activityBar {
+        BackGroundColor $arrow
+    }
+
+    start, stop, diamond {
+        BackGroundColor $arrow
+        LineColor $arrow
+        LineThickness 5
+    }
+    diamond {
+        BackGroundColor $group_bg
+        FontColor $comp_text_outer
+        LineThickness 2
+    }
+    arrow {
+        FontColor $arrow
+        LineThickness 3
+    }
+}
+
+jsonDiagram {
+    LineColor $arrow
+    element {
+        BackGroundColor $c_blue_3
+        FontColor $comp_text
+    }
+}
+
+</style>
+
+!ifndef $STEREOHACK
+    hide stereotype
+    <style>
+        object, activity, actor, usecase, rectangle, database, storage, queue, package, frame, component, node, folder, card, cloud, artifact, file {
+            .red {
+                BackgroundColor $body_red
+            }
+            .orange {
+                BackgroundColor $body_orange
+            }
+            .yellow {
+                BackgroundColor $body_yellow
+            }
+            .green {
+                BackgroundColor $body_green
+            }
+            .blue {
+                BackgroundColor $body_blue
+            }
+            .purple {
+                BackgroundColor $body_purple
+            }
+            .grey {
+                BackgroundColor $body_grey
+            }
+
+        }
+    </style>
+!endif
