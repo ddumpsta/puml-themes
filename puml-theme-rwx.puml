@@ -1,5 +1,5 @@
 skinparam actorStyle awesome
-skinparam wrapWidth 300k
+skinparam wrapWidth 300
 
 scale 1
 
@@ -11,15 +11,8 @@ scale 1
 !$c_white = 'fff'
 !$c_copper = '392720'
 
-!$c_blue_1 = '00293c'
-!$c_blue_2 = '004372'
 !$c_blue_3 = '006cbe'
 !$c_blue_4 = '008dbe'
-!$c_blue_5 = 'c5e8ff'
-
-!$c_orange_1 = '311a00'
-!$c_orange_2 = 'b55f00'
-!$c_orange_3 = 'ee570a'
 !$c_orange_4 = 'ee9466'
 !$c_orange_5 = 'fadcc4'
 
@@ -39,6 +32,23 @@ scale 1
 !$c_grey_a = '414a51'
 !$c_grey_b = '5d6471'
 
+' backgrounds light
+!$bg_red_light = 'db909b'
+!$bg_orange_light = 'ebaa76'
+!$bg_yellow_light = 'e5ca6f'
+!$bg_green_light = '8ec28e'
+!$bg_blue_light = '78bad7'
+!$bg_purple_light = 'c0a2c5'
+!$bg_grey_light = 'c0c0c6'
+
+' backgrounds dark
+!$bg_red_dark = a7212177
+!$bg_orange_dark = ff8d5155
+!$bg_yellow_dark = d7b21655
+!$bg_green_dark = '47a85b77'
+!$bg_blue_dark = '008dbe66'
+!$bg_purple_dark = '995fbd66'
+!$bg_grey_dark = '5d647166'
 
 ' bodies definitions
 !$body_red = $c_red_b/$c_red_a
@@ -48,6 +58,10 @@ scale 1
 !$body_blue = $c_blue_b/$c_blue_a
 !$body_purple = $c_purple_b/$c_purple_a
 !$body_grey = $c_grey_b/$c_grey_a
+
+!$body_def = $body_blue
+!$bg_def_light = $bg_grey_light
+!$bg_def_dark = $bg_grey_dark
 
 !ifndef $DARK_THEME
     !$bg = $c_white
@@ -61,7 +75,7 @@ scale 1
     !$comp_text_outer = $c_black
 
     !$group_border = $c_white
-    !$group_bg = ddd
+    !$group_bg = $bg_grey_light
     !$group_box_bg = $c_orange_5
 
     !$arrow = 333
@@ -70,7 +84,16 @@ scale 1
     !$note_bg = $c_orange_5
     !$note_text = $c_black
 
+    !$fill_red = $bg_red_light
+    !$fill_orange = $bg_orange_light
+    !$fill_yellow = $bg_yellow_light
+    !$fill_green = $bg_green_light
+    !$fill_blue = $bg_blue_light
+    !$fill_purple = $bg_purple_light
+    !$fill_grey = $bg_grey_light
+
 !else
+
     !$bg = '1f2023'
     !$title = $c_white
     !$headers = 888
@@ -82,13 +105,21 @@ scale 1
     !$comp_text = $c_white
     !$comp_text_outer = $c_white
 
-    !$group_border = $arrow
-    !$group_bg = $bg
+    !$group_border = $bg
+    !$group_bg = $bg_def_dark
     !$group_box_bg = $c_copper
 
-    !$note_border = $c_orange_4
-    !$note_bg = $c_copper
+    !$note_border = $arrow
+    !$note_bg = $bg_orange_dark
     !$note_text = $c_white
+
+    !$fill_red = $bg_red_dark
+    !$fill_orange = $bg_orange_dark
+    !$fill_yellow = $bg_yellow_dark
+    !$fill_green = $bg_green_dark
+    !$fill_blue = $bg_blue_dark
+    !$fill_purple = $bg_purple_dark
+    !$fill_grey = $bg_grey_dark
 
 !endif
 
@@ -279,7 +310,7 @@ sequenceDiagram {
 componentDiagram {
     LineThickness 2
 
-    usecase, rectangle, database, storage, queue, package, frame, component, node, folder, card, cloud, artifact, file {
+    usecase, rectangle, database, storage, queue, package, frame, component, node, folder, card, cloud, artifact, file, collections, agent, person {
         LineColor $comp_border
         BackGroundColor $comp_bg
         FontColor $comp_text
@@ -296,11 +327,16 @@ componentDiagram {
     }
 
     group {
-        rectangle, database, storage, queue, package, frame, component, node, folder, card, cloud, artifact, file {
+        rectangle, database, storage, queue, package, frame, component, node, folder, card, cloud, artifact, file, collections {
             BackGroundColor $group_bg
             LineColor $group_border
         }
     }
+
+	boundary,control,entity,stack,interface {
+	    LineColor $comp_bg
+	    LineThickness 3
+	}
 }
 
 ' class diagrams
@@ -364,7 +400,7 @@ jsonDiagram {
 !ifndef $STEREOHACK
     hide stereotype
     <style>
-        object, activity, actor, usecase, rectangle, database, storage, queue, package, frame, component, node, folder, card, cloud, artifact, file {
+        object, activity, actor, usecase, rectangle, database, storage, queue, package, frame, component, node, folder, card, cloud, artifact, file, collections {
             .red {
                 BackgroundColor $body_red
             }
@@ -386,7 +422,55 @@ jsonDiagram {
             .grey {
                 BackgroundColor $body_grey
             }
+        }
 
+    	boundary,control,entity,stack,interface {
+            .red {
+                LineColor $body_red
+            }
+            .orange {
+                LineColor $body_orange
+            }
+            .yellow {
+                LineColor $body_yellow
+            }
+            .green {
+                LineColor $body_green
+            }
+            .blue {
+                LineColor $body_blue
+            }
+            .purple {
+                LineColor $body_purple
+            }
+            .grey {
+                LineColor $body_grey
+            }
+        }
+        group {
+            rectangle, database, storage, queue, package, frame, component, node, folder, card, cloud, artifact, file, collections {
+                .red {
+                    BackgroundColor $fill_red
+                }
+                .orange {
+                    BackgroundColor $fill_orange
+                }
+                .yellow {
+                    BackgroundColor $fill_yellow
+                }
+                .green {
+                    BackgroundColor $fill_green
+                }
+                .blue {
+                    BackgroundColor $fill_blue
+                }
+                .purple {
+                    BackgroundColor $fill_purple
+                }
+                .grey {
+                    BackgroundColor $fill_grey
+                }
+            }
         }
     </style>
 !endif
