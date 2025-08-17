@@ -1,0 +1,527 @@
+@startuml
+
+!$DARK_THEME = 1
+!theme rwx from ../../
+
+!pragma layout smetana
+
+title All elements collection
+
+caption %filename()
+
+header %date()
+
+footer
+PlantUML %version()
+end footer
+
+left to right direction
+
+rectangle "Default rectangle" {
+    actor "Default actor" as act1
+    usecase Action
+    rectangle Rectangle
+    node Node
+    cloud Cloud
+    entity Entity
+    boundary Boundary
+    package Package
+    frame Frame
+    component Component
+    collections Collections
+    folder Folder
+    card Card
+    artifact Artifact
+    file File
+    database Database
+    storage Storage
+    queue Queue
+
+    act1 .. Action
+    act1 .. Rectangle
+    Action .. Node
+    Rectangle .. Cloud
+    Node -- Entity
+    Node -- Boundary
+    Boundary -- Package
+    Entity -- Frame
+    Frame -- Component
+    Frame -- Collections
+    Component -- Folder
+    Component -- Card
+    Card -- Artifact
+    Folder -- File
+    Artifact -- Storage
+    File -- Database
+    Storage -- Queue
+}
+
+rectangle "Grey rectangle" {
+    actor "Green actor" as actGreen <<green>>
+    usecase PurpleAction <<purple>>
+    rectangle GreyRectangle <<grey>>
+    node OrangeNode <<orange>>
+    cloud YellowCloud <<yellow>>
+    entity RedEntity <<red>>
+    boundary PurpleBoundary <<purple>>
+    package OrangePackage <<orange>>
+    frame RedFrame <<red>>
+    component YellowComponent <<yellow>>
+    collections GreyCollections <<grey>>
+    folder PurpleFolder <<purple>>
+    card OrangeCard <<orange>>
+    artifact GreenArtifact <<green>>
+    file RedFile <<red>>
+    database BlueDatabase <<blue>>
+    storage YellowStorage <<yellow>>
+    queue GreenQueue <<green>>
+
+    actGreen .. PurpleAction
+    actGreen .. GreyRectangle
+    PurpleAction .. OrangeNode
+    GreyRectangle .. YellowCloud
+    OrangeNode -- RedEntity
+    OrangeNode -- PurpleBoundary
+    PurpleBoundary -- OrangePackage
+    RedEntity -- RedFrame
+    RedFrame -- YellowComponent
+    RedFrame -- GreyCollections
+    YellowComponent -- PurpleFolder
+    YellowComponent -- OrangeCard
+    OrangeCard -- GreenArtifact
+    PurpleFolder -- RedFile
+    GreenArtifact -- YellowStorage
+    RedFile -- BlueDatabase
+    YellowStorage -- GreenQueue
+}
+
+node "Green node" <<green>> {
+    actor "Green actor" as gn.actGreen <<green>>
+    usecase gn.PurpleAction <<purple>>
+    rectangle gn.GreyRectangle <<grey>>
+    node gn.OrangeNode <<orange>>
+    cloud gn.YellowCloud <<yellow>>
+    entity gn.RedEntity <<red>>
+    boundary gn.PurpleBoundary <<purple>>
+    package gn.OrangePackage <<orange>>
+    frame gn.RedFrame <<red>>
+    component gn.YellowComponent <<yellow>>
+    collections gn.GreyCollections <<grey>>
+    folder gn.PurpleFolder <<purple>>
+    card gn.OrangeCard <<orange>>
+    artifact gn.GreenArtifact <<green>>
+    file gn.RedFile <<red>>
+    database gn.BlueDatabase <<blue>>
+    storage gn.YellowStorage <<yellow>>
+    queue gn.GreenQueue <<green>>
+
+    gn.actGreen .. gn.PurpleAction
+    gn.actGreen .. gn.GreyRectangle
+    gn.PurpleAction .. gn.OrangeNode
+    gn.GreyRectangle .. gn.YellowCloud
+    gn.OrangeNode -- gn.RedEntity
+    gn.OrangeNode -- gn.PurpleBoundary
+    gn.PurpleBoundary -- gn.OrangePackage
+    gn.RedEntity -- gn.RedFrame
+    gn.RedFrame -- gn.YellowComponent
+    gn.RedFrame -- gn.GreyCollections
+    gn.YellowComponent -- gn.PurpleFolder
+    gn.YellowComponent -- gn.OrangeCard
+    gn.OrangeCard -- gn.GreenArtifact
+    gn.PurpleFolder -- gn.RedFile
+    gn.GreenArtifact -- gn.YellowStorage
+    gn.RedFile -- gn.BlueDatabase
+    gn.YellowStorage -- gn.GreenQueue
+}
+
+cloud "Purple Cloud" <<purple>> {
+    actor "Green actor" as pc.actGreen <<green>>
+    usecase pc.PurpleAction <<purple>>
+    rectangle pc.GreyRectangle <<grey>>
+    node pc.OrangeNode <<orange>>
+    cloud pc.YellowCloud <<yellow>>
+    entity pc.RedEntity <<red>>
+    boundary pc.PurpleBoundary <<purple>>
+    package pc.OrangePackage <<orange>>
+    frame pc.RedFrame <<red>>
+    component pc.YellowComponent <<yellow>>
+    collections pc.GreyCollections <<grey>>
+    folder pc.PurpleFolder <<purple>>
+    card pc.OrangeCard <<orange>>
+    artifact pc.GreenArtifact <<green>>
+    file pc.RedFile <<red>>
+    database pc.BlueDatabase <<blue>>
+    storage pc.YellowStorage <<yellow>>
+    queue pc.GreenQueue <<green>>
+
+    pc.actGreen .. pc.PurpleAction
+    pc.actGreen .. pc.GreyRectangle
+    pc.PurpleAction .. pc.OrangeNode
+    pc.GreyRectangle .. pc.YellowCloud
+    pc.OrangeNode -- pc.RedEntity
+    pc.OrangeNode -- pc.PurpleBoundary
+    pc.PurpleBoundary -- pc.OrangePackage
+    pc.RedEntity -- pc.RedFrame
+    pc.RedFrame -- pc.YellowComponent
+    pc.RedFrame -- pc.GreyCollections
+    pc.YellowComponent -- pc.PurpleFolder
+    pc.YellowComponent -- pc.OrangeCard
+    pc.OrangeCard -- pc.GreenArtifact
+    pc.PurpleFolder -- pc.RedFile
+    pc.GreenArtifact -- pc.YellowStorage
+    pc.RedFile -- pc.BlueDatabase
+    pc.YellowStorage -- pc.GreenQueue
+}
+
+package "Orange Package" <<orange>> {
+    actor "Green actor" as op.actGreen <<green>>
+    usecase op.PurpleAction <<purple>>
+    rectangle op.GreyRectangle <<grey>>
+    node op.OrangeNode <<orange>>
+    cloud op.YellowCloud <<yellow>>
+    entity op.RedEntity <<red>>
+    boundary op.PurpleBoundary <<purple>>
+    package op.OrangePackage <<orange>>
+    frame op.RedFrame <<red>>
+    component op.YellowComponent <<yellow>>
+    collections op.GreyCollections <<grey>>
+    folder op.PurpleFolder <<purple>>
+    card op.OrangeCard <<orange>>
+    artifact op.GreenArtifact <<green>>
+    file op.RedFile <<red>>
+    database op.BlueDatabase <<blue>>
+    storage op.YellowStorage <<yellow>>
+    queue op.GreenQueue <<green>>
+
+    op.actGreen .. op.PurpleAction
+    op.actGreen .. op.GreyRectangle
+    op.PurpleAction .. op.OrangeNode
+    op.GreyRectangle .. op.YellowCloud
+    op.OrangeNode -- op.RedEntity
+    op.OrangeNode -- op.PurpleBoundary
+    op.PurpleBoundary -- op.OrangePackage
+    op.RedEntity -- op.RedFrame
+    op.RedFrame -- op.YellowComponent
+    op.RedFrame -- op.GreyCollections
+    op.YellowComponent -- op.PurpleFolder
+    op.YellowComponent -- op.OrangeCard
+    op.OrangeCard -- op.GreenArtifact
+    op.PurpleFolder -- op.RedFile
+    op.GreenArtifact -- op.YellowStorage
+    op.RedFile -- op.BlueDatabase
+    op.YellowStorage -- op.GreenQueue
+}
+
+frame "Blue Frame" <<blue>> {
+    actor "Green actor" as bf.actGreen <<green>>
+    usecase bf.PurpleAction <<purple>>
+    rectangle bf.GreyRectangle <<grey>>
+    node bf.OrangeNode <<orange>>
+    cloud bf.YellowCloud <<yellow>>
+    entity bf.RedEntity <<red>>
+    boundary bf.PurpleBoundary <<purple>>
+    package bf.OrangePackage <<orange>>
+    frame bf.RedFrame <<red>>
+    component bf.YellowComponent <<yellow>>
+    collections bf.GreyCollections <<grey>>
+    folder bf.PurpleFolder <<purple>>
+    card bf.OrangeCard <<orange>>
+    artifact bf.GreenArtifact <<green>>
+    file bf.RedFile <<red>>
+    database bf.BlueDatabase <<blue>>
+    storage bf.YellowStorage <<yellow>>
+    queue bf.GreenQueue <<green>>
+
+    bf.actGreen .. bf.PurpleAction
+    bf.actGreen .. bf.GreyRectangle
+    bf.PurpleAction .. bf.OrangeNode
+    bf.GreyRectangle .. bf.YellowCloud
+    bf.OrangeNode -- bf.RedEntity
+    bf.OrangeNode -- bf.PurpleBoundary
+    bf.PurpleBoundary -- bf.OrangePackage
+    bf.RedEntity -- bf.RedFrame
+    bf.RedFrame -- bf.YellowComponent
+    bf.RedFrame -- bf.GreyCollections
+    bf.YellowComponent -- bf.PurpleFolder
+    bf.YellowComponent -- bf.OrangeCard
+    bf.OrangeCard -- bf.GreenArtifact
+    bf.PurpleFolder -- bf.RedFile
+    bf.GreenArtifact -- bf.YellowStorage
+    bf.RedFile -- bf.BlueDatabase
+    bf.YellowStorage -- bf.GreenQueue
+}
+
+component "Red Component" <<red>> {
+    actor "Green actor" as rc.actGreen <<green>>
+    usecase rc.PurpleAction <<purple>>
+    rectangle rc.GreyRectangle <<grey>>
+    node rc.OrangeNode <<orange>>
+    cloud rc.YellowCloud <<yellow>>
+    entity rc.RedEntity <<red>>
+    boundary rc.PurpleBoundary <<purple>>
+    package rc.OrangePackage <<orange>>
+    frame rc.RedFrame <<red>>
+    component rc.YellowComponent <<yellow>>
+    collections rc.GreyCollections <<grey>>
+    folder rc.PurpleFolder <<purple>>
+    card rc.OrangeCard <<orange>>
+    artifact rc.GreenArtifact <<green>>
+    file rc.RedFile <<red>>
+    database rc.BlueDatabase <<blue>>
+    storage rc.YellowStorage <<yellow>>
+    queue rc.GreenQueue <<green>>
+
+    rc.actGreen .. rc.PurpleAction
+    rc.actGreen .. rc.GreyRectangle
+    rc.PurpleAction .. rc.OrangeNode
+    rc.GreyRectangle .. rc.YellowCloud
+    rc.OrangeNode -- rc.RedEntity
+    rc.OrangeNode -- rc.PurpleBoundary
+    rc.PurpleBoundary -- rc.OrangePackage
+    rc.RedEntity -- rc.RedFrame
+    rc.RedFrame -- rc.YellowComponent
+    rc.RedFrame -- rc.GreyCollections
+    rc.YellowComponent -- rc.PurpleFolder
+    rc.YellowComponent -- rc.OrangeCard
+    rc.OrangeCard -- rc.GreenArtifact
+    rc.PurpleFolder -- rc.RedFile
+    rc.GreenArtifact -- rc.YellowStorage
+    rc.RedFile -- rc.BlueDatabase
+    rc.YellowStorage -- rc.GreenQueue
+}
+
+card "Yellow card" <<yellow>> {
+    actor "Green actor" as yc.actGreen <<green>>
+    usecase yc.PurpleAction <<purple>>
+    rectangle yc.GreyRectangle <<grey>>
+    node yc.OrangeNode <<orange>>
+    cloud yc.YellowCloud <<yellow>>
+    entity yc.RedEntity <<red>>
+    boundary yc.PurpleBoundary <<purple>>
+    package yc.OrangePackage <<orange>>
+    frame yc.RedFrame <<red>>
+    component yc.YellowComponent <<yellow>>
+    collections yc.GreyCollections <<grey>>
+    folder yc.PurpleFolder <<purple>>
+    card yc.OrangeCard <<orange>>
+    artifact yc.GreenArtifact <<green>>
+    file yc.RedFile <<red>>
+    database yc.BlueDatabase <<blue>>
+    storage yc.YellowStorage <<yellow>>
+    queue yc.GreenQueue <<green>>
+
+    yc.actGreen .. yc.PurpleAction
+    yc.actGreen .. yc.GreyRectangle
+    yc.PurpleAction .. yc.OrangeNode
+    yc.GreyRectangle .. yc.YellowCloud
+    yc.OrangeNode -- yc.RedEntity
+    yc.OrangeNode -- yc.PurpleBoundary
+    yc.PurpleBoundary -- yc.OrangePackage
+    yc.RedEntity -- yc.RedFrame
+    yc.RedFrame -- yc.YellowComponent
+    yc.RedFrame -- yc.GreyCollections
+    yc.YellowComponent -- yc.PurpleFolder
+    yc.YellowComponent -- yc.OrangeCard
+    yc.OrangeCard -- yc.GreenArtifact
+    yc.PurpleFolder -- yc.RedFile
+    yc.GreenArtifact -- yc.YellowStorage
+    yc.RedFile -- yc.BlueDatabase
+    yc.YellowStorage -- yc.GreenQueue
+}
+
+artifact "Grey artifact" <<grey>> {
+    actor "Green actor" as ga.actGreen <<green>>
+    usecase ga.PurpleAction <<purple>>
+    rectangle ga.GreyRectangle <<grey>>
+    node ga.OrangeNode <<orange>>
+    cloud ga.YellowCloud <<yellow>>
+    entity ga.RedEntity <<red>>
+    boundary ga.PurpleBoundary <<purple>>
+    package ga.OrangePackage <<orange>>
+    frame ga.RedFrame <<red>>
+    component ga.YellowComponent <<yellow>>
+    collections ga.GreyCollections <<grey>>
+    folder ga.PurpleFolder <<purple>>
+    card ga.OrangeCard <<orange>>
+    artifact ga.GreenArtifact <<green>>
+    file ga.RedFile <<red>>
+    database ga.BlueDatabase <<blue>>
+    storage ga.YellowStorage <<yellow>>
+    queue ga.GreenQueue <<green>>
+
+    ga.actGreen .. ga.PurpleAction
+    ga.actGreen .. ga.GreyRectangle
+    ga.PurpleAction .. ga.OrangeNode
+    ga.GreyRectangle .. ga.YellowCloud
+    ga.OrangeNode -- ga.RedEntity
+    ga.OrangeNode -- ga.PurpleBoundary
+    ga.PurpleBoundary -- ga.OrangePackage
+    ga.RedEntity -- ga.RedFrame
+    ga.RedFrame -- ga.YellowComponent
+    ga.RedFrame -- ga.GreyCollections
+    ga.YellowComponent -- ga.PurpleFolder
+    ga.YellowComponent -- ga.OrangeCard
+    ga.OrangeCard -- ga.GreenArtifact
+    ga.PurpleFolder -- ga.RedFile
+    ga.GreenArtifact -- ga.YellowStorage
+    ga.RedFile -- ga.BlueDatabase
+    ga.YellowStorage -- ga.GreenQueue
+}
+
+artifact "Green file" <<green>> {
+    actor "Green actor" as gf.actGreen <<green>>
+    usecase gf.PurpleAction <<purple>>
+    rectangle gf.GreyRectangle <<grey>>
+    node gf.OrangeNode <<orange>>
+    cloud gf.YellowCloud <<yellow>>
+    entity gf.RedEntity <<red>>
+    boundary gf.PurpleBoundary <<purple>>
+    package gf.OrangePackage <<orange>>
+    frame gf.RedFrame <<red>>
+    component gf.YellowComponent <<yellow>>
+    collections gf.GreyCollections <<grey>>
+    folder gf.PurpleFolder <<purple>>
+    card gf.OrangeCard <<orange>>
+    artifact gf.GreenArtifact <<green>>
+    file gf.RedFile <<red>>
+    database gf.BlueDatabase <<blue>>
+    storage gf.YellowStorage <<yellow>>
+    queue gf.GreenQueue <<green>>
+
+    gf.actGreen .. gf.PurpleAction
+    gf.actGreen .. gf.GreyRectangle
+    gf.PurpleAction .. gf.OrangeNode
+    gf.GreyRectangle .. gf.YellowCloud
+    gf.OrangeNode -- gf.RedEntity
+    gf.OrangeNode -- gf.PurpleBoundary
+    gf.PurpleBoundary -- gf.OrangePackage
+    gf.RedEntity -- gf.RedFrame
+    gf.RedFrame -- gf.YellowComponent
+    gf.RedFrame -- gf.GreyCollections
+    gf.YellowComponent -- gf.PurpleFolder
+    gf.YellowComponent -- gf.OrangeCard
+    gf.OrangeCard -- gf.GreenArtifact
+    gf.PurpleFolder -- gf.RedFile
+    gf.GreenArtifact -- gf.YellowStorage
+    gf.RedFile -- gf.BlueDatabase
+    gf.YellowStorage -- gf.GreenQueue
+}
+
+database "Red database" <<red>> {
+    actor "Green actor" as rd.actGreen <<green>>
+    usecase rd.PurpleAction <<purple>>
+    rectangle rd.GreyRectangle <<grey>>
+    node rd.OrangeNode <<orange>>
+    cloud rd.YellowCloud <<yellow>>
+    entity rd.RedEntity <<red>>
+    boundary rd.PurpleBoundary <<purple>>
+    package rd.OrangePackage <<orange>>
+    frame rd.RedFrame <<red>>
+    component rd.YellowComponent <<yellow>>
+    collections rd.GreyCollections <<grey>>
+    folder rd.PurpleFolder <<purple>>
+    card rd.OrangeCard <<orange>>
+    artifact rd.GreenArtifact <<green>>
+    file rd.RedFile <<red>>
+    database rd.BlueDatabase <<blue>>
+    storage rd.YellowStorage <<yellow>>
+    queue rd.GreenQueue <<green>>
+
+    rd.actGreen .. rd.PurpleAction
+    rd.actGreen .. rd.GreyRectangle
+    rd.PurpleAction .. rd.OrangeNode
+    rd.GreyRectangle .. rd.YellowCloud
+    rd.OrangeNode -- rd.RedEntity
+    rd.OrangeNode -- rd.PurpleBoundary
+    rd.PurpleBoundary -- rd.OrangePackage
+    rd.RedEntity -- rd.RedFrame
+    rd.RedFrame -- rd.YellowComponent
+    rd.RedFrame -- rd.GreyCollections
+    rd.YellowComponent -- rd.PurpleFolder
+    rd.YellowComponent -- rd.OrangeCard
+    rd.OrangeCard -- rd.GreenArtifact
+    rd.PurpleFolder -- rd.RedFile
+    rd.GreenArtifact -- rd.YellowStorage
+    rd.RedFile -- rd.BlueDatabase
+    rd.YellowStorage -- rd.GreenQueue
+}
+
+storage "Yellow storage" <<yellow>> {
+    actor "Green actor" as ys.actGreen <<green>>
+    usecase ys.PurpleAction <<purple>>
+    rectangle ys.GreyRectangle <<grey>>
+    node ys.OrangeNode <<orange>>
+    cloud ys.YellowCloud <<yellow>>
+    entity ys.RedEntity <<red>>
+    boundary ys.PurpleBoundary <<purple>>
+    package ys.OrangePackage <<orange>>
+    frame ys.RedFrame <<red>>
+    component ys.YellowComponent <<yellow>>
+    collections ys.GreyCollections <<grey>>
+    folder ys.PurpleFolder <<purple>>
+    card ys.OrangeCard <<orange>>
+    artifact ys.GreenArtifact <<green>>
+    file ys.RedFile <<red>>
+    database ys.BlueDatabase <<blue>>
+    storage ys.YellowStorage <<yellow>>
+    queue ys.GreenQueue <<green>>
+
+    ys.actGreen .. ys.PurpleAction
+    ys.actGreen .. ys.GreyRectangle
+    ys.PurpleAction .. ys.OrangeNode
+    ys.GreyRectangle .. ys.YellowCloud
+    ys.OrangeNode -- ys.RedEntity
+    ys.OrangeNode -- ys.PurpleBoundary
+    ys.PurpleBoundary -- ys.OrangePackage
+    ys.RedEntity -- ys.RedFrame
+    ys.RedFrame -- ys.YellowComponent
+    ys.RedFrame -- ys.GreyCollections
+    ys.YellowComponent -- ys.PurpleFolder
+    ys.YellowComponent -- ys.OrangeCard
+    ys.OrangeCard -- ys.GreenArtifact
+    ys.PurpleFolder -- ys.RedFile
+    ys.GreenArtifact -- ys.YellowStorage
+    ys.RedFile -- ys.BlueDatabase
+    ys.YellowStorage -- ys.GreenQueue
+}
+
+queue "Blue queue" <<blue>> {
+    actor "Green actor" as bq.actGreen <<green>>
+    usecase bq.PurpleAction <<purple>>
+    rectangle bq.GreyRectangle <<grey>>
+    node bq.OrangeNode <<orange>>
+    cloud bq.YellowCloud <<yellow>>
+    entity bq.RedEntity <<red>>
+    boundary bq.PurpleBoundary <<purple>>
+    package bq.OrangePackage <<orange>>
+    frame bq.RedFrame <<red>>
+    component bq.YellowComponent <<yellow>>
+    collections bq.GreyCollections <<grey>>
+    folder bq.PurpleFolder <<purple>>
+    card bq.OrangeCard <<orange>>
+    artifact bq.GreenArtifact <<green>>
+    file bq.RedFile <<red>>
+    database bq.BlueDatabase <<blue>>
+    storage bq.YellowStorage <<yellow>>
+    queue bq.GreenQueue <<green>>
+
+    bq.actGreen .. bq.PurpleAction
+    bq.actGreen .. bq.GreyRectangle
+    bq.PurpleAction .. bq.OrangeNode
+    bq.GreyRectangle .. bq.YellowCloud
+    bq.OrangeNode -- bq.RedEntity
+    bq.OrangeNode -- bq.PurpleBoundary
+    bq.PurpleBoundary -- bq.OrangePackage
+    bq.RedEntity -- bq.RedFrame
+    bq.RedFrame -- bq.YellowComponent
+    bq.RedFrame -- bq.GreyCollections
+    bq.YellowComponent -- bq.PurpleFolder
+    bq.YellowComponent -- bq.OrangeCard
+    bq.OrangeCard -- bq.GreenArtifact
+    bq.PurpleFolder -- bq.RedFile
+    bq.GreenArtifact -- bq.YellowStorage
+    bq.RedFile -- bq.BlueDatabase
+    bq.YellowStorage -- bq.GreenQueue
+}
+
+@enduml
