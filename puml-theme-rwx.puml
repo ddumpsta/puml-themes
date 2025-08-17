@@ -335,7 +335,8 @@ componentDiagram {
 
 	boundary,control,entity,stack,interface {
 	    LineColor $comp_bg
-	    LineThickness 3
+	    BackGroundColor transparent
+	    LineThickness 4
 	}
 }
 
