@@ -389,7 +389,7 @@ activityDiagram {
     }
 }
 
-jsonDiagram {
+jsonDiagram, yamlDiagram {
     LineColor $arrow
     element {
         BackGroundColor $c_blue_3
