@@ -199,6 +199,7 @@ note {
 	FontStyle italic
 	FontColor $note_text
 	LineColor $note_border
+    HorizontalAlignment left
 }
 arrow {
     ' object diagram has no ns specific style
